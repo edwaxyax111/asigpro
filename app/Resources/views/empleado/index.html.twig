@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Empleado lista</h1>
+
+    <table  class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Idempleado</th>
+                <th>Nombre</th>
+                <th>Fechanacimiento</th>
+                <th>Profesion</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Username</th>
+                <th>Pass</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for empleado in empleados %}
+            <tr>
+                <td><a href="{{ path('empleado_show', { 'id': empleado.idEmpleado }) }}">{{ empleado.idEmpleado }}</a></td>
+                <td>{{ empleado.nombre }}</td>
+                <td>{% if empleado.fechaNacimiento %}{{ empleado.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ empleado.profesion }}</td>
+                <td>{{ empleado.direccion }}</td>
+                <td>{{ empleado.telefono }}</td>
+                <td>{{ empleado.userName }}</td>
+                <td>{{ empleado.pass }}</td>
+                <td>
+                    <ul>
+
+                            <a class="btn btn-primary" href="{{ path('empleado_show', { 'id': empleado.idEmpleado }) }}">Mostrar</a>
+
+                            <a class="btn btn-secondary" href="{{ path('empleado_edit', { 'id': empleado.idEmpleado }) }}">Editar</a>
+  
+                            <a class="btn btn-danger" title="Clic si desea Eliminar" href="{{path('empleado_delete',{"id":empleado.idEmpleado})}}" class="glyphicon glyphicon-trash" onclick="return confirm('¿Está seguro que desea Eliminar?')">Eliminar</a>           
+     
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+
+            <a class="btn btn-success" href="{{ path('empleado_new') }}">Crear un nuevo Empleado</a>
+        
+    </ul>
+{% endblock %}

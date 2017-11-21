@@ -1,0 +1,80 @@
+BlogBundle\Entity\Entries:
+    type: entity
+    table: entries
+    indexes:
+        fk_entries_users:
+            columns:
+                - user_id
+        fd_entries_categories:
+            columns:
+                - categories_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        content:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        status:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        image:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        categories:
+            targetEntity: Categories
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: entry
+            joinColumns:
+                categories_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: Users
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+   
+   #Codigo agregado para la oneToMany
+    oneToMany:
+        #Asi se van a llamar las salidas las salidas 
+        entryTag:
+            #Esta es la entidad
+            targetEntity: EntryTags 
+            #va a maperar el entry de EntryTags
+            mappedBy: entry
+            #Lo va a hacer por medio de cascada
+            cascade: ["persist"]
+            
+    
+    
+    lifecycleCallbacks: {  }

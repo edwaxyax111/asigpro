@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Asignacion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idasignacion</th>
+                <td>{{ asignacion.idAsignacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a class="btn btn-secondary"  href="{{ path('asignacion_index') }}">Regresar al listado</a>
+        </li>
+        <li>
+            <a class="btn btn-primary" href="{{ path('asignacion_edit', { 'id': asignacion.idAsignacion }) }}">Editar</a>
+        </li>     
+    </ul>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Proyecto lista</h1>
+
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Idproyecto</th>
+                <th>Nombreproyecto</th>
+                <th>Descripcion</th>
+                <th>Presupuesto</th>
+                <th>Encargado</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for proyecto in proyectos %}
+            <tr>
+                <td><a href="{{ path('proyecto_show', { 'id': proyecto.idProyecto }) }}">{{ proyecto.idProyecto }}</a></td>
+                <td>{{ proyecto.nombreProyecto }}</td>
+                <td>{{ proyecto.descripcion }}</td>
+                <td>{{ proyecto.presupuesto }}</td>
+                <td>{{ proyecto.encargado }}</td>
+                <td>
+                    <ul>
+          
+                            <a class="btn btn-primary" href="{{ path('proyecto_show', { 'id': proyecto.idProyecto }) }}">Mostrar</a>
+               
+                            <a class="btn btn-secondary" href="{{ path('proyecto_edit', { 'id': proyecto.idProyecto }) }}">Editar</a>
+              
+                        
+                            <a class="btn btn-danger" title="Clic si desea Eliminar" href="{{path('proyecto_delete',{"id":proyecto.idProyecto})}}" class="glyphicon glyphicon-trash" onclick="return confirm('¿Está seguro que desea Eliminar?')">Eliminar</a>           
+                         
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        
+            <a class="btn btn-success" href="{{ path('proyecto_new') }}">Crear un nuevo Proyecto</a>
+        
+    </ul>
+{% endblock %}

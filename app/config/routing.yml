@@ -1,0 +1,85 @@
+app_asignacion:
+    resource: "@AppBundle/Controller/AsignacionController.php"
+    type:     annotation
+
+app_proyecto:
+    resource: "@AppBundle/Controller/ProyectoController.php"
+    type:     annotation
+
+app_empleado:
+    resource: "@AppBundle/Controller/EmpleadoController.php"
+    type:     annotation
+
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    
+asignacion_login:
+    path: login/
+    defaults: {_controller: AppBundle:Asignacion:login}
+
+asignacion_index:
+    path: asignacion
+    defaults: {_controller: AppBundle:Asignacion:index}
+
+asignacion_new:
+    path: asignacion/new
+    defaults: {_controller: AppBundle:Asignacion:new}
+    
+asignacion_show:
+    path: asignacion/{id}
+    defaults: {_controller: AppBundle:Asignacion:show}
+    
+asignacion_edit:
+    path: asignacion/{id}/edit
+    defaults: {_controller: AppBundle:Asignacion:edit}
+
+asignacion_delete:
+    path: asignacion/{id}/delete
+    defaults: {_controller: AppBundle:Asignacion:delete}
+
+empleado_index:
+    path: empleado
+    defaults: {_controller: AppBundle:Empleado:index}
+
+empleado_new:
+    path: empleado/new
+    defaults: {_controller: AppBundle:Empleado:new}
+    
+empleado_show:
+    path: empleado/{id}
+    defaults: {_controller: AppBundle:Empleado:show}
+    
+empleado_edit:
+    path: empleado/{id}/edit
+    defaults: {_controller: AppBundle:Empleado:edit}
+
+empleado_delete:
+    path: empleado/{id}/delete
+    defaults: {_controller: AppBundle:Empleado:delete}
+
+proyecto_index:
+    path: proyecto
+    defaults: {_controller: AppBundle:Proyecto:index}
+
+proyecto_new:
+    path: proyecto/new
+    defaults: {_controller: AppBundle:Proyecto:new}
+    
+proyecto_show:
+    path: proyecto/{id}
+    defaults: {_controller: AppBundle:Proyecto:show}
+    
+proyecto_edit:
+    path: proyecto/{id}/edit
+    defaults: {_controller: AppBundle:Proyecto:edit}
+
+proyecto_delete:
+    path: proyecto/{id}/delete
+    defaults: {_controller: AppBundle:Proyecto:delete}
+    
+

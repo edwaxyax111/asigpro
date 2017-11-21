@@ -1,0 +1,66 @@
+{% extends "BlogBundle::layout.html.twig" %}
+{% block content %}
+	
+	<!-- Si se identifico correctamente el usuario -->
+	
+	{# % if app.user != null % #}
+	{# {dump(app.user)}# }
+	{# % endif % #}
+	
+	
+	{% if is_granted('ROLE_USER')%}
+	 <strong>
+		 Usuario
+	 </strong>
+
+	{% endif %}
+	
+	
+	{% if is_granted('ROLE_ADMIN')%}
+	 <strong>
+		 Administrador
+	 </strong>
+	{% endif %}
+	
+	
+	
+	
+	<br><Br><Br><br><br>
+<div class="col-md-10 col-md-offset-4">
+	<div class="col-lg-4">
+		<center><h2>Indentificacion </h2></center>
+	<form action="{{path("login_check")}}" method="post">
+		<div id="primero">
+		<label>Usuario: </label>
+		<input type="text" id="username" name="_username" value="{{lastUsername}}" class="form-control" placeholder="Ejemplo: Julio"/>
+		<div class="primero"> Escriba el nombre de usuario del secretario </div>
+		</div>
+		
+		<br/>
+		<div id="primero">
+		<label>Contraseña: </label>
+		<input type="password" id="password" name="_password"  class="form-control" placeholder="Ejemplo: 123"/>
+		<div class="primero"> Escriba la contraseña del secretario </div>
+		
+		</div>
+		
+		<br/>
+		<input type="submit" value="Verificar"  class="btn btn-success"/>
+		<input type="hidden" name="_target_path" value="/login" /> <!-- Esto nos redirige a login-->
+		
+		
+		<!--Este es el codigo agregado-->
+		<input type="date">
+		
+		
+	</form> 		
+		<br>
+		<br>
+	<div>
+		<div>
+		<!-- Para que limpie lo flotado-->
+		<div class="clearfix"> 
+</div>
+{% endblock%}
+
+

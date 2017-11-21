@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Proyecto</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idproyecto</th>
+                <td>{{ proyecto.idProyecto }}</td>
+            </tr>
+            <tr>
+                <th>Nombreproyecto</th>
+                <td>{{ proyecto.nombreProyecto }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ proyecto.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Presupuesto</th>
+                <td>{{ proyecto.presupuesto }}</td>
+            </tr>
+            <tr>
+                <th>Encargado</th>
+                <td>{{ proyecto.encargado }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a class="btn btn-secondary" href="{{ path('proyecto_index') }}">Regresar al listado</a>
+        </li>
+        <li>
+            <a class="btn btn-primary" href="{{ path('proyecto_edit', { 'id': proyecto.idProyecto }) }}">Editar</a>
+        </li>      
+    </ul>
+{% endblock %}

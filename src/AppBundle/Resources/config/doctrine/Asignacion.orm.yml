@@ -1,0 +1,42 @@
+AppBundle\Entity\Asignacion:
+    type: entity
+    table: asignacion
+    indexes:
+        IX_Relationship1:
+            columns:
+                - id_empleado
+        IX_Relationship2:
+            columns:
+                - id_proyecto
+    id:
+        idAsignacion:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_asignacion
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idEmpleado:
+            targetEntity: Empleado
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_empleado:
+                    referencedColumnName: id_empleado
+            orphanRemoval: false
+        idProyecto:
+            targetEntity: Proyecto
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_proyecto:
+                    referencedColumnName: id_proyecto
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

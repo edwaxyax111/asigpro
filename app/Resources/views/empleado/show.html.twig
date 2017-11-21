@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Empleado</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idempleado</th>
+                <td>{{ empleado.idEmpleado }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ empleado.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Fechanacimiento</th>
+                <td>{% if empleado.fechaNacimiento %}{{ empleado.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Profesion</th>
+                <td>{{ empleado.profesion }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ empleado.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ empleado.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ empleado.userName }}</td>
+            </tr>
+            <tr>
+                <th>Pass</th>
+                <td>{{ empleado.pass }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a class="btn btn-secondary" href="{{ path('empleado_index') }}">Regresar al listado</a>
+        </li>
+        <li>
+            <a class="btn btn-primary" href="{{ path('empleado_edit', { 'id': empleado.idEmpleado }) }}">Editar</a>
+        </li>  
+    </ul>
+{% endblock %}

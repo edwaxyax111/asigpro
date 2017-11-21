@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Asignaciones</h1>
+    <hr/>
+    <table  class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Idasignacion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for asignacion in asignacions %}
+            <tr>
+                <td><a class="btn btn-success" href="{{ path('asignacion_show', { 'id': asignacion.idAsignacion }) }}">{{ asignacion.idAsignacion }}</a></td>
+                <td>
+                    <ul>
+                      
+                            <a class="btn btn-primary" href="{{ path('asignacion_show', { 'id': asignacion.idAsignacion }) }}">Mostrar</a>
+                
+
+                            <a class="btn btn-secondary" href="{{ path('asignacion_edit', { 'id': asignacion.idAsignacion }) }}">Editar</a>
+         
+                            <a class="btn btn-danger" title="Clic si desea Eliminar" href="{{path('asignacion_delete',{"id":asignacion.idAsignacion})}}" class="glyphicon glyphicon-trash" onclick="return confirm('¿Está seguro que desea Eliminar?')">Eliminar</a>           
+                
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+            <a class="btn btn-success" href="{{ path('asignacion_new') }}">Nueva Asignación</a>
+        
+    </ul>
+{% endblock %}

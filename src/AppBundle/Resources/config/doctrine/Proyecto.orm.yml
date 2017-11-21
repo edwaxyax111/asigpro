@@ -1,0 +1,40 @@
+AppBundle\Entity\Proyecto:
+    type: entity
+    table: proyecto
+    id:
+        idProyecto:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_proyecto
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombreProyecto:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+            column: nombre_proyecto
+        descripcion:
+            type: string
+            nullable: false
+            length: 120
+            options:
+                fixed: false
+        presupuesto:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+        encargado:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }
